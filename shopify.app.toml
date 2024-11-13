@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "699dc8071708434fde85c14801503d40"
+name = "my-app-test"
+handle = "my-app-test-21"
+application_url = "https://pvc-springfield-horn-owner.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://pvc-springfield-horn-owner.trycloudflare.com/auth/callback",
+  "https://pvc-springfield-horn-owner.trycloudflare.com/auth/shopify/callback",
+  "https://pvc-springfield-horn-owner.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[pos]
+embedded = false
+
+[build]
+dev_store_url = "quickstart-e7c1399a.myshopify.com"
+automatically_update_urls_on_dev = true
